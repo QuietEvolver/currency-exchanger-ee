@@ -14,17 +14,17 @@ function getCurrency(currency){
 
 function printElements(response){
   try {
-    console.log("response: ", response);
-    const baseCode = response.base_code;
+    // console.log("response: ", response);
+    // const baseCode = response.base_code;
     const conversionRates = response.conversion_rates;
-    const USD = response.base_code("USD");
-    console.log("USD", USD);
+    // const USD = response.base_code("USD");
+    // console.log("USD", USD);
     
-    if(baseCode === USD){
-      console.log("I am in conversion USD", baseCode, conversionRates);
-      return conversionRates;
-    }
-
+    // if(baseCode === USD){
+    //   console.log("I am in conversion USD", baseCode, conversionRates);
+    //   return conversionRates;
+    // }
+    document.querySelector("#showResponse").innerText = `Res: ${response} with base code: ${response.base_code} and rates are ${response.conversionRates}`;
     return Object.values(Object.keys(conversionRates));
     // my base code = USD
     // if User wants X, 
