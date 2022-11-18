@@ -5,6 +5,7 @@ import CurrencyService from './service/currency-service.js';
 function getCurrency(currency){
   let promise = CurrencyService.getCurrency(currency);
   console.log("Promise get currency: ", currency);
+  
 
   promise.then(function (data){
     console.log("getC res data: ", data)
@@ -14,13 +15,13 @@ function getCurrency(currency){
   });
 }
 
-function printElements(response, currency){
+function printElements(data, currencyUSD){
   try {
     // console.log("response: ", response);
     // const baseCode = response.base_code;
-    const conversionRates = response.conversion_rates; // aka Object.values(c)[7]
-    let dollars = Object.values(response)[8].USD;
-    let USD = currency * dollars; 
+    const conversionRates = data.conversion_rates; // aka Object.values(c)[7]
+    let dollars = Object.values(data)[8].USD;
+    let USD = currencyUSD* dollars; 
     console.log("dollars: ", dollars);
     console.log("USD: ", USD);
     // const USD = response.base_code("USD");
