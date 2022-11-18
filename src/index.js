@@ -55,6 +55,7 @@ function handleFormSubmit(e) {
   document.getElementById("showResponse").innerText = "";
   const currency = document.getElementById("currency").value;
   document.getElementById("currency").value = null;
+  currency === "usd";
   getCurrency(currency);
   // const currency = document.getElementById("currency").value;
   // document.getElementById("currency").value = null;
