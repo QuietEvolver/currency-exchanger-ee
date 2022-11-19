@@ -12,7 +12,7 @@ function getCurrency(currency){
   
     console.log(" get currency dollars: ", dollars);
     console.log(" get currency USD intake calc: ", USD);
-    document.querySelector("#showResponse").innerText = `Res in promise call: rates are for your $ ${dollars} in USD \n`;
+    // document.querySelector("#showResponse").innerText = `Res in promise call: rates are for your $ ${USD} in USD \n`;
 
     printElements(data);
   }, function(error) {
@@ -24,13 +24,15 @@ function printElements(response){
   try {
     // console.log("response: ", response);
     // const baseCode = response.base_code;
-    // const conversionRates = response.conversion_rates; // aka Object.values(c)[7]
+    // const conversionRates = response.conversion_rates; // aka Object.values(response)[7]
+    
+    // RESPONSE.CONVERSION_RATE x usdCurrencyDOMIntake = rate;
     let dollars = Object.values(response)[8].USD;
-    let euros = Object.values(response)[8].EUR;
-    let roubles = Object.values(response)[8].RUB;
-    let cordobas = Object.values(response)[8].NIO;
-    let nairas = Object.values(response)[8].NGN;
-    let pounds = Object.values(response)[8].GBP;
+    let euros = Object.values(response)[8].EUR;  // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/EUR
+    let roubles = Object.values(response)[8].RUB; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/RUB
+    let cordobas = Object.values(response)[8].NIO; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/NIO
+    let nairas = Object.values(response)[8].NGN; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/NGN
+    let pounds = Object.values(response)[8].GBP; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP 
     // let USD = currencyUSD * dollars; 
     console.log("dollars: ", dollars);
     // console.log("currencyUSD: ", currencyUSD);
@@ -42,7 +44,7 @@ function printElements(response){
     //   console.log("I am in conversion USD", baseCode, conversionRates);
     //   return conversionRates;
     // }
-    document.querySelector("#showResponse").innerText = `Res: rates are for your $ ${dollars} in USD \n
+    document.querySelector("#showResponse").innerText = `Res: rates are for your USD $ ${dollars} \n
     Euro(s) € ${euros} \n 
     Rouble(s) ₽ ${roubles} \n 
     Cordoba(s) C$ ${cordobas} \n 
@@ -84,6 +86,7 @@ function handleFormSubmit(e) {
   getCurrency(currencyUSD);
   let currency = currencyUSD;
   console.log("currency e: ", currency);
+  console.log("currency e: ", getCurrency(currency));
 }
 
 window.addEventListener("load", function(){
