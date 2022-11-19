@@ -82,6 +82,8 @@ function handleFormSubmit(e) {
   const currencyUSD = document.getElementById("currencyUSD").value;
   console.log("e currency USD input: ", currencyUSD);
   document.getElementById("currencyUSD").value = null;
+  const currencyType = document.querySelector("input[name='currency-type']:checked").value;
+  console.log("currencyType: ", currencyType);
   
   getCurrency(currencyUSD);
   let currency = currencyUSD;
