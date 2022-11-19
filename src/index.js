@@ -6,7 +6,7 @@ function getCurrency(currency){
   let promise = CurrencyService.getCurrency(currency);
   console.log("Promise get currency: ", currency);
   promise.then(function (data){
-    console.log("getC res data: ", data)
+    console.log("getC res data: ", data);
     let dollars = Object.values(data)[8].USD;
 
     console.log(" get currency dollars: ", dollars);
@@ -23,11 +23,11 @@ function printElements(response){
     // const baseCode = response.base_code;
     // const conversionRates = response.conversion_rates; // aka Object.values(c)[7]
     let dollars = Object.values(response)[8].USD;
-    let francs = Object.values(response)[8].FRF;
+    let euros = Object.values(response)[8].EUR;
     let roubles = Object.values(response)[8].RUB;
     let cordobas = Object.values(response)[8].NIO;
-    let naira = Object.values(response)[8].NGN;
-    let won = Object.values(response)[8].KPW;
+    let nairas = Object.values(response)[8].NGN;
+    let pounds = Object.values(response)[8].GBP;
     // let USD = currencyUSD * dollars; 
     console.log("dollars: ", dollars);
     // console.log("currencyUSD: ", currencyUSD);
@@ -40,12 +40,12 @@ function printElements(response){
     //   return conversionRates;
     // }
     document.querySelector("#showResponse").innerText = `Res: rates are for your $ ${dollars} in USD \n
-    Franc(s) ₣ ${francs} \n 
+    Euro(s) € ${euros} \n 
     Rouble(s) ₽ ${roubles} \n 
     Cordoba(s) C$ ${cordobas} \n 
-    Naira(s) ₦ ${naira} \n 
-    Won(s) ₩ ${won} \n `
-    ;// ${response} with base code: ${response.base_code} and
+    Naira(s) ₦ ${nairas} \n 
+    Pound(s) £ ${pounds} \n `;
+    // ${response} with base code: ${response.base_code} and
     // return Object.values(Object.keys(conversionRates));
     // my base code = USD
     // if User wants X, 
