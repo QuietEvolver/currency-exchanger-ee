@@ -9,11 +9,11 @@
 
     <pre>
       USD: dollar
-      FRF: franc
+      EUR: euro
       RUB: rouble
       NIO: cordoba
       NGN: naira
-      KPW: won
+      GBP: pound
     </pre>
 
     <form>
@@ -22,16 +22,18 @@
   
       <fieldset id="order-size">
         <legend>$ Exchange(s): <em>daily rates</em> </legend>
-        <input type="radio" id="small" name="order-size" value="small" checked>
-        <label for="small" checked >rae</label>
-        <input type="radio" id="medium" name="order-size" value="medium">
-        <label for="medium">Medium $10</label>
-        <input type="radio" id="large" name="order-size" value="large">
-        <label for="large">Large $15</label>
-        <input type="radio" id="medium" name="order-size" value="medium">
-        <label for="medium">Medium $10</label>
-        <input type="radio" id="large" name="order-size" value="large">
-        <label for="large">Large $15</label>
+        <input type="radio" id="dollar" name="order-size" value="dollar" checked>
+        <label for="dollar" checked >dollar</label>
+        <input type="radio" id="euro" name="order-size" value="euro">
+        <label for="euro">euro</label>
+        <input type="radio" id="rouble" name="order-size" value="rouble">
+        <label for="rouble">rouble</label>
+        <input type="radio" id="cordoba" name="order-size" value="cordoba">
+        <label for="cordoba">cordoba</label>
+        <input type="radio" id="naira" name="order-size" value="naira">
+        <label for="naira">naira</label>
+        <input type="radio" id="pound" name="order-size" value="pound">
+        <label for="pound">pound</label>
       </fieldset>
 
       <button type="submit">Get currency</button>
