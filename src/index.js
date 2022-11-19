@@ -8,8 +8,11 @@ function getCurrency(currency){
   promise.then(function (data){
     console.log("getC res data: ", data);
     let dollars = Object.values(data)[8].USD;
-
+    let USD = currency * dollars; 
+  
     console.log(" get currency dollars: ", dollars);
+    console.log(" get currency USD intake calc: ", USD);
+    document.querySelector("#showResponse").innerText = `Res in promise call: rates are for your $ ${dollars} in USD \n`;
 
     printElements(data);
   }, function(error) {
