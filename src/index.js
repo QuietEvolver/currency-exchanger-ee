@@ -59,12 +59,12 @@ function printElements(response){
     // then { conversionRates will return USD in Y format } 
     // if User wants Z, 
     // then { conversionRates will return USD in Z format } 
-    // if User wants Y, 
-    // then { conversionRates will return USD in Y format } 
     // if User wants A, 
     // then { conversionRates will return USD in A format } 
     // if User wants B, 
     // then { conversionRates will return USD in B format } 
+    // if User wants C, 
+    // then { conversionRates will return USD in C format } 
   } catch (error) {
     document.querySelector("p#showResponse").innerText += "This is not available. Check back later.";
   }
@@ -78,17 +78,19 @@ function printError(error) {
 function handleFormSubmit(e) {
   e.preventDefault();
 
-  document.getElementById("showResponse").innerText = "";
   const currencyUSD = document.getElementById("currencyUSD").value;
   console.log("e currency USD input: ", currencyUSD);
   document.getElementById("currencyUSD").value = null;
   const currencyType = document.querySelector("input[name='currency-type']:checked").value;
   console.log("currencyType: ", currencyType);
+  document.getElementById("showResponse").innerText = "";
+  
+
   
   getCurrency(currencyUSD);
   let currency = currencyUSD;
-  console.log("currency e: ", currency);
-  console.log("currency e: ", getCurrency(currency));
+  console.log("currency: ", currency);
+  console.log("getCurrency(currency): ", getCurrency(currency));
 }
 
 window.addEventListener("load", function(){
