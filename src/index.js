@@ -29,37 +29,39 @@ function printElements(data, currencyIntake){
     // const baseCode = response.base_code;
     // const conversionRates = response.conversion_rates; // aka Object.values(response)[7]
     let euros = currencyIntake * Object.values(data)[8].EUR;  // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/EUR
-      // currencyIntake *= euros;
-      console.log("euros: ", euros);
+    // currencyIntake *= euros;
+    console.log("euros: ", euros);
     let roubles = currencyIntake * Object.values(data)[8].RUB; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/RUB
+    console.log("roubles: ", roubles);
     let cordobas = currencyIntake * Object.values(data)[8].NIO; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/NIO
+    console.log("cordobas: ", cordobas);
     let nairas = currencyIntake * Object.values(data)[8].NGN; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/NGN
+    console.log("nairas: ", nairas);
     let pounds = currencyIntake * Object.values(data)[8].GBP; 
+    console.log("pounds: ", pounds);
     if(currencyIntake > 0){
       console.log("TprintElements dollar: ", dollar);      
       console.log("If STMT ßcurrency: ", currencyIntake);
-
-  // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP 
-    // let USD = currencyUSD * dollars; 
-    console.log("dollars: ", dollars);
-    return currencyIntake;
-  }
-
-  /*Order.prototype.calculateOrderPrice = function(){
-  if(this.toppings.price === 0){
-    return this.size;
-  }
-  else if(this.size === "small"){
-    this.price = 5 + (this.toppings.length *2);
-    return this.price;
-  } else if(this.size === "medium"){
-    this.price = 10 + (this.toppings.length *2);
-    return this.price;
-  } else if(this.size === "large"){
-    this.price = 15 + (this.toppings.length *2);
-    return this.price;
-  }
-} */
+      // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP 
+      // let USD = currencyUSD * dollars; 
+      console.log("dollars: ", dollars);
+      return currencyIntake;
+    } else if(this.currencyIntake === "euros"){
+      currencyIntake = currencyIntake * euros;
+      return currencyIntake;
+    } else if(this.currencyIntake === "roubles"){
+      currencyIntake = currencyIntake * roubles;
+      return currencyIntake; 
+    } else if(this.size === "cordobas"){
+      this.currencyIntake = cordobas;
+      return this.currencyIntake;
+    } else if(this.currencyIntake === "nairas"){
+      currencyIntake = currencyIntake * nairas;
+      return currencyIntake; 
+    } else if(this.size === "pounds"){
+      this.currencyIntake = pounds;
+      return this.currencyIntake;
+    }
 
     document.querySelector("#showResponse").innerText = `Res: rates are for your USD $ ${currencyIntake} \n
     Currently, for every USD $ ${dollars} \n
@@ -101,6 +103,7 @@ function handleFormSubmit(e) {
   document.getElementById("showResponse").innerText = "";
 
   getCurrency(currencyUSD);
+  printElements(currencyUSD);
 }
 
 window.addEventListener("load", function(){
