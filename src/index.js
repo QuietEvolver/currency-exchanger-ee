@@ -11,7 +11,7 @@ function getCurrency(currency){
     let currencyIntake = currency * dollars; 
     // console.log(" get currency dollars: ", dollars); // $1 
     // console.log(" get currency USD intake calc: ", currencyIntake); // $20
-    document.querySelector("#showResponse").innerText = `Res in promise call: rates are for your $ ${currencyIntake} in USD \n`;
+    document.querySelector("#showResponse").innerText = `Res rates are for your $ ${currencyIntake} in USD \n`;
 
     printElements(data, currencyIntake);
   }, function(error) {
@@ -52,13 +52,13 @@ function printElements(data, currencyIntake){
     } else if(this.currencyIntake === "roubles"){
       currencyIntake = currencyIntake * roubles;
       return currencyIntake; 
-    } else if(this.size === "cordobas"){
+    } else if(this.currencyIntake === "cordobas"){
       this.currencyIntake = cordobas;
       return this.currencyIntake;
     } else if(this.currencyIntake === "nairas"){
       currencyIntake = currencyIntake * nairas;
       return currencyIntake; 
-    } else if(this.size === "pounds"){
+    } else if(this.currencyIntake === "pounds"){
       this.currencyIntake = pounds;
       return this.currencyIntake;
     }
