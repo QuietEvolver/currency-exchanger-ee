@@ -8,34 +8,32 @@ function getCurrency(currency){
   promise.then(function (data){
     console.log("getC res data: ", data);
     let dollars = Object.values(data)[8].USD;
-    let USD = currency * dollars; 
-  
-    console.log(" get currency dollars: ", dollars); // $1 
-    console.log(" get currency USD intake calc: ", USD); // $20
+    let currencyIntake = currency * dollars; 
+    // console.log(" get currency dollars: ", dollars); // $1 
+    // console.log(" get currency USD intake calc: ", currencyIntake); // $20
     // document.querySelector("#showResponse").innerText = `Res in promise call: rates are for your $ ${USD} in USD \n`;
 
-    printElements(data, currency);
+    printElements(data, currencyIntake);
   }, function(error) {
     printError(error);
   });
 }
 
-function printElements(data, currency){
+function printElements(data, currencyIntake){
 
   // let dollars = currency * dollar;
   // console.log("TprintElements ßcurrency: ", dollars);
-  console.log("TprintElements currency: ", currency);
+  console.log("TprintElements currency: ", currencyIntake);
   // let currency = data.currency ;
  
     let dollar = Object.values(data)[8].USD;
   try { 
-    if(currency > 0){
+    if(currencyIntake > 0){
 
-      currency *= dollar;
       console.log("TprintElements dollar: ", dollar);
       
-      console.log("If STMT ßcurrency: ", currency);
-      return currency;
+      console.log("If STMT ßcurrency: ", currencyIntake);
+      return currencyIntake;
   }
     // console.log("TryCatch response: ", response);
     console.log("TryCatch data: ", data);
@@ -46,6 +44,7 @@ function printElements(data, currency){
     // RESPONSE.CONVERSION_RATE x usdCurrencyDOMIntake = rate;
     let dollars = Object.values(data)[8].USD;
     let euros = Object.values(data)[8].EUR;  // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/EUR
+      // currencyIntake *= euros;
     let roubles = Object.values(data)[8].RUB; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/RUB
     let cordobas = Object.values(data)[8].NIO; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/NIO
     let nairas = Object.values(data)[8].NGN; // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/NGN
@@ -61,7 +60,7 @@ function printElements(data, currency){
     //   console.log("I am in conversion USD", baseCode, conversionRates);
     //   return conversionRates;
     // }
-    document.querySelector("#showResponse").innerText = `Res: rates are for your USD $ ${currency} \n
+    document.querySelector("#showResponse").innerText = `Res: rates are for your USD $ ${currencyIntake} \n
     for every USD $ ${dollars} \n
     Euro(s) € ${euros} \n 
     Rouble(s) ₽ ${roubles} \n 
@@ -88,20 +87,15 @@ function printElements(data, currency){
   }
 }
 
-// function calculateCurrency(currency){
-
-// }
-
 function printError(error) {
   document.querySelector("#showResponse").innerText = `Error: ${error}`;
 }
-
 
 function handleFormSubmit(e) {
   e.preventDefault();
 
   const currencyUSD = document.getElementById("currencyUSD").value;
-  console.log("e currency USD input: ", currencyUSD);
+  // console.log("e currency USD input: ", currencyUSD);
   document.getElementById("currencyUSD").value = null;
   const currencyType = document.querySelector("input[name='currency-type']:checked").value;
   console.log("currencyType: ", currencyType);
