@@ -39,29 +39,29 @@ function printElements(data, currencyIntake){
     console.log("nairas: ", nairas);
     let pounds = currencyIntake * Object.values(data)[8].GBP; 
     console.log("pounds: ", pounds);
-    if(currencyIntake > 0){
-      console.log("TprintElements dollar: ", dollar);      
-      console.log("If STMT ßcurrency: ", currencyIntake);
-      // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP 
-      // let USD = currencyUSD * dollars; 
-      console.log("dollars: ", dollars);
-      return currencyIntake;
-    } else if(this.currencyIntake === "euros"){
-      currencyIntake = currencyIntake * euros;
-      return currencyIntake;
-    } else if(this.currencyIntake === "roubles"){
-      currencyIntake = currencyIntake * roubles;
-      return currencyIntake; 
-    } else if(this.currencyIntake === "cordobas"){
-      this.currencyIntake = cordobas;
-      return this.currencyIntake;
-    } else if(this.currencyIntake === "nairas"){
-      currencyIntake = currencyIntake * nairas;
-      return currencyIntake; 
-    } else if(this.currencyIntake === "pounds"){
-      this.currencyIntake = pounds;
-      return this.currencyIntake;
-    }
+    // if(currencyIntake > 0){
+    //   console.log("TprintElements dollar: ", dollar);      
+    //   console.log("If STMT ßcurrency: ", currencyIntake);
+    //   // https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/GBP 
+    //   // let USD = currencyUSD * dollars; 
+    //   console.log("dollars: ", dollars);
+    //   return currencyIntake;
+    // } else if(this.currencyIntake === "euros"){
+    //   currencyIntake = currencyIntake * euros;
+    //   return currencyIntake;
+    // } else if(this.currencyIntake === "roubles"){
+    //   currencyIntake = currencyIntake * roubles;
+    //   return currencyIntake; 
+    // } else if(this.currencyIntake === "cordobas"){
+    //   this.currencyIntake = cordobas;
+    //   return this.currencyIntake;
+    // } else if(this.currencyIntake === "nairas"){
+    //   currencyIntake = currencyIntake * nairas;
+    //   return currencyIntake; 
+    // } else if(this.currencyIntake === "pounds"){
+    //   this.currencyIntake = pounds;
+    //   return this.currencyIntake;
+    // }
 
     document.querySelector("#showResponse").innerText = `Res: rates are for your USD $ ${currencyIntake} \n
     Currently, for every USD $ ${dollars} \n
